@@ -1,0 +1,108 @@
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Pointers</title>
+
+    <!--Load CSS-->
+    <link rel="stylesheet" type="text/css" href="./src/main.css" media="all">
+    <link rel="stylesheet" type="text/css" href="./src/prettify.css" media="all">
+
+    <!--Load Javascript-->
+    <script src="https://cdn.rawgit.com/Some-Side-Projects/trash/master/faq.js"></script>
+    <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+
+    <script type="text/javascript">
+        function toggle_expando(elem) { 
+            var examples = $(elem).siblings(".rule-examples"); 
+            var toggle = $(elem).find(".toggle"); 
+            if (examples.is(":visible")) { 
+                toggle.text("[+]"); 
+                examples.slideUp(); 
+            } else {
+                 toggle.text("[\u2013]"); 
+                 examples.slideDown(); 
+            } 
+        }
+    </script>
+</head>
+
+<body onload="PR.prettyPrint()">
+<div class="rulespage">
+    <!--Title-->
+    <h1>Template</h1>
+
+    <!--text under title-->
+    <p class="info">This page contains set of challenges that you can go through to test your understanding on the topic. It aditionally contains links to resources and or explanations on the topic.</p>
+    <p class="info"><b>This page was last updated on 25-2-2018</b></p>
+    <p class="info">You can find its source on <a href="https://github.com/frainfreeze/studying/tree/master/practice">github.</a></p>
+
+    <!-- section -->
+    <ol class="zol rule-list">
+        <p class="info">Example 1</p>
+        <li id="tutorial" class="first-rule">
+            <!--challenges-->
+            <div class="examples">
+                    <pre  class="prettyprint">
+                        <code class="language-python">
+def hi():
+    print("Hello, world!")
+
+hi()
+                        </code>
+                    </pre>
+
+
+                <p class="expander" onclick="return toggle_expando(this);"><em class="toggle">[+]</em>&nbsp;Show ouput</p>
+                <div class="rule-examples" style="font-size:12; display: none;">
+                    <pre>
+                        >>> Hello, world!
+                    </pre>
+
+                </div>
+            </div>
+            <!-- end challenges -->
+        </li>
+    </ol>
+    <!-- end section-->
+
+    <!-- section -->
+    <ol class="rule-list">
+        <p class="info">Example 2</p>
+        <li id="tutorial" class="first-rule">
+            <!--challenges-->
+            <div class="examples">
+                <p>lists example</p>
+                <p class="expander" onclick="return toggle_expando(this);"><em class="toggle">[+]</em>&nbsp;Show</p>
+                <div class="rule-examples" style="display: none;">
+                    <ul>
+                        <li class="example good-example">good example</li>
+                        <li class="example bad-example">bad example</li>
+                    </ul>
+                </div>
+            </div>
+    
+            <div class="examples">
+                <p>lists with math formatting example</p>
+                <p class="expander" onclick="return toggle_expando(this);"><em class="toggle">[+]</em>&nbsp;Show</p>
+                <div class="rule-examples" style="display: none;">
+                    <ul>
+                        <li class="example bad-example">
+                            <p>math example</p><br>
+                            <math>
+                                    H(s) = ∫<sub>0</sub><sup>∞</sup> e<sup>-st</sup> h(t) dt
+                            </math>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- end challenges -->
+        </li> 
+    </ol>
+    
+    <p>© 2018 Tomislav (fraifnreeze) Kucar.</p><br><br>
+</div>
+</body>
+
+<!-- separator line <li id="goodboy">-->
+</html>
