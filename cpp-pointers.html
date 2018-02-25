@@ -35,7 +35,7 @@
     <!--text under title-->
     <p class="info">This page contains set of challenges that you can go through to test your understanding on the topic. It aditionally contains links to resources and or explanations on the topic.</p>
     <p class="info"><b>This page was last updated on 25-2-2018</b></p>
-    <p class="info">You can find its source on <a href="https://github.com/frainfreeze/studying/tree/master/practice">github.</a></p>
+    <p class="info">You can find its source on <a href="https://github.com/frainfreeze/practice/tree/master/">github.</a></p>
 
     <!-- section -->
     <ol class="rule-list">
@@ -183,10 +183,11 @@
 <pre  class="prettyprint">
 <code class="language-cpp">
 void coutA(int*a){
-    cout << a << " | " << *a << " | in pointer func" << endl;
+    cout << &a << " | " << a << " | " << *a << " | in pointer func" << endl;
 }
+    
 void coutA(int&a){
-    cout << &a << " | " << a << " | in reference func" << endl;
+    cout << &a << " | " << a << "\t\t | in reference func" << endl;
 }
                     
 int main() {
