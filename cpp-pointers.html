@@ -128,9 +128,11 @@
     cout << tempArray[0] << endl;
 </code></pre>
 
-                </div>
+                </div></div>
 
                 <br><br>
+
+                <div class="examples">
                 <p><b>A reference</b> is a simple reference datatype that is less powerful but safer than the pointer type inherited from C.</p>
                 <br>
                 <p>
@@ -174,12 +176,63 @@
     cout << barVec[1] << endl; // spaz
 </code></pre>
 
-            </div>
+            </div></div></li>
 
             <br><br>
-            <!--challenges-->
+
+
+            <li id="tutorial" class="first-rule">
+            <!--challenge-->
             <div class="examples">
-                <p>1. What does following code output?</p>
+                <p>1. Create pointer 'pNum' that points to int 'num'. Set value of num to 10 by deferencing pNum pointer. Initialize new varibale 'num2' by directly acessing  'num' throught pNum pointer. Output num2.</p>
+
+                <p class="expander" onclick="return toggle_expando(this);"><em class="toggle">[+]</em>&nbsp;Show solution</p>
+                <div class="rule-examples" style="font-size:12; display: none;">
+                        <pre  class="prettyprint">
+                            <code class="language-cpp">
+int num;
+int* pNum = &amp;num;
+*pNum = 10;
+int num2 = *pNum;
+std::cout << num2 << std::endl;
+-------------------
+output: 10
+                        </code></pre>
+
+                </div>
+            </div>
+            <!-- end challenge -->
+
+            <br>  <br>
+
+            <!--challenge-->
+            <div class="examples">
+                    <p>2. How would you output memory address of num from previous example? How would you output memory address of num by using pointer? How would you ouput memory address of the pointer itself?
+                        </p>
+    
+                    <p class="expander" onclick="return toggle_expando(this);"><em class="toggle">[+]</em>&nbsp;Show solution</p>
+                    <div class="rule-examples" style="font-size:12; display: none;">
+                            <pre  class="prettyprint">
+                                <code class="language-cpp">
+std::cout << &num << std::endl;
+std::cout << pNum << std::endl;
+std::cout << &pNum << std::endl;
+---------------
+output:
+0x28ff28 - num
+0x28ff28 - num over pointer
+0x28ff24 - pointers address
+                            </code></pre>
+    
+                    </div>
+                </div>
+                <!-- end challenge -->
+    
+                <br>  <br>
+
+            <!--challenge-->           
+            <div class="examples">
+                <p>3. What does following code output?</p>
 <pre  class="prettyprint">
 <code class="language-cpp">
 void coutA(int*a){
@@ -211,7 +264,7 @@ int main() {
 
 
                 <p class="expander" onclick="return toggle_expando(this);"><em class="toggle">[+]</em>&nbsp;Show solution</p>
-                <div class="rule-examples" style="display: none;">
+                <div class="rule-examples" style="font-size:11; display: none;">
 <pre>
                         0x28ff28 | 42            | in reference func
                         0x28ff10 | 0x28ff28 | 42 | in pointer func
@@ -230,6 +283,128 @@ int main() {
                 </div>
             </div>
             <!-- end challenges -->
+
+            <br>  <br>
+
+            <!--challenge-->
+            <div class="examples">
+                <p>
+                        3. Initialize int and float variables 'foo' and 'bar' both to 0. Declare a new void pointer and use it to change values of foo and bar to 3 and 3.4 respectively. Output values of foo and bar.
+                </p>
+    
+                <p class="expander" onclick="return toggle_expando(this);"><em class="toggle">[+]</em>&nbsp;Show solution</p>
+                <div class="rule-examples" style="font-size:12; display: none;">
+                    <pre  class="prettyprint">
+                    <code class="language-cpp">
+int foo = 0;
+float bar = 0;
+void *pointy;
+
+pointy = &foo;
+*(int *)pointy = 3;
+
+pointy = &bar;
+*(float *)pointy = 3.4;
+
+std::cout &lt;&lt; foo &lt;&lt; ", " &lt;&lt; bar &lt;&lt; std::endl;
+--------------------------------------------
+output: 3, 3.4
+                    </code></pre>
+                </div>
+            </div>
+            <!-- end challenge -->
+
+            <br>  <br>
+
+            <!--challenge-->
+            <div class="examples">
+                <p>
+                4. Define an array of first 5 natural numbers. Output whole array by deferencing a pointer and change 3 to 4 before outputing it.
+                </p>
+    
+                <p class="expander" onclick="return toggle_expando(this);"><em class="toggle">[+]</em>&nbsp;Show solution</p>
+                <div class="rule-examples" style="font-size:12; display: none;">
+                    <pre  class="prettyprint">
+                    <code class="language-cpp">
+int arr[] = {1,2,3,4,5};
+for(int i = 0; i&lt;sizeof(arr)/sizeof(*arr); ++i){
+   if(*(arr+i) == 3) std::cout &lt;&lt; 4 &lt;&lt; " ";
+   else std::cout &lt;&lt; *(arr+i) &lt;&lt; " ";
+}
+------------------------------------------------
+output: 1 2 4 4 5
+                    </code></pre>
+                </div>
+            </div>
+            <!-- end challenge -->
+            <br>  <br>
+            <!--challenge-->           
+            <div class="examples">
+                <p>5. What does following code output?</p>
+<pre  class="prettyprint">
+<code class="language-cpp">
+int a = 1;
+int b = 2;
+int c = 3;
+int arr[] = {a,b,c};
+
+*(arr+2) = 7;
+
+for(int i = 0; i&lt;sizeof(arr)/sizeof(*arr); ++i){
+    std::cout &lt;&lt; &arr[i] &lt;&lt; " | " &lt;&lt; arr[i] &lt;&lt; std::endl;
+    std::cout &lt;&lt; arr + i &lt;&lt; " | " &lt;&lt; *(arr+i) &lt;&lt; std::endl;
+}
+</code>
+</pre>
+
+
+                <p class="expander" onclick="return toggle_expando(this);"><em class="toggle">[+]</em>&nbsp;Show solution</p>
+                <div class="rule-examples" style="font-size:12; display: none;">
+<pre>
+                    0x28ff14 | 1
+                    0x28ff14 | 1
+                    0x28ff18 | 2
+                    0x28ff18 | 2
+                    0x28ff1c | 7
+                    0x28ff1c | 7
+</pre>
+
+                </div>
+            </div>
+            <!-- end challenges -->
+
+            <br>  <br>
+
+            <!--challenge-->
+            <div class="examples">
+                <p>
+                6. Define new pancake using struct bellow and assign it values 10 and 7.68 using pointers. Output pancake info using alternative notation. 
+            </p>
+            <br><pre style="font-size:12">
+struct Pancake {
+    int i;
+    float f;
+};
+</pre>
+                
+    
+                <p class="expander" onclick="return toggle_expando(this);"><em class="toggle">[+]</em>&nbsp;Show solution</p>
+                <div class="rule-examples" style="font-size:12; display: none;">
+                    <pre  class="prettyprint">
+                    <code class="language-cpp">
+Pancake *ptr, pancake;
+ptr = &pancake;
+
+(*ptr).i = 10;
+(*ptr).f = 7.68;
+
+std::cout << ptr->i << " " << ptr->f;
+------------------------------------
+output: 10, 7.68
+                    </code></pre>
+                </div>
+            </div>
+            <!-- end challenge -->
         </li>
     </ol>
     <!-- end section-->
