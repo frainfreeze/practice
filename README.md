@@ -1,7 +1,7 @@
 ## C++
 - flow control
 - functions
-- [pointers and references](https://frainfreeze.github.io/practice/cpp/pointers.html)
+- [pointers and references](https://frainfreeze.github.io/practice/cpp/pointers)
 - arrays
 - iterators, vectors and basic algorithms
 - structures
