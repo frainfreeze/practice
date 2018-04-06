@@ -1,11 +1,12 @@
 ## C++
 - flow control
 - functions
-- [pointers and references](https://frainfreeze.github.io/practice/cpp-pointers.html)
+- [pointers and references](https://frainfreeze.github.io/practice/cpp/pointers.html)
 - arrays
 - iterators, vectors and basic algorithms
 - structures
 - Input and Output
+- misc
 
 ## Python
 - todo
