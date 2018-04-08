@@ -4,8 +4,10 @@
 - [pointers and references](https://frainfreeze.github.io/practice/cpp/pointers)
 - arrays
 - iterators, vectors and basic algorithms
-- structures
 - Input and Output
+- structures and classes
+- templates
+- inheritance and polymorphism
 - misc
 
 ## Python

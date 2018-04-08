@@ -1,3 +1,5 @@
+C++
+
 What do the letters in OOP signify? What is a class? What is an object? 
 What is a virtual function? What is a static member variable?
 What are the 5 types of inheritance in C++? What are the three access class specifiers in C++?
@@ -13,3 +15,11 @@ https://www.toptal.com/c-plus-plus/interview-questions#iquestion_form
 --------------
 Write a C++ function to swap two integers without using a temp variable. 
 --------------
+https://www.codeproject.com/Articles/257589/An-Idiots-Guide-to-Cplusplus-Templates-Part
+
+
+
+
+Python
+https://www.toptal.com/python/beginners-guide-to-concurrency-and-parallelism-in-python
+http://chriskiehl.com/article/parallelism-in-one-line/
