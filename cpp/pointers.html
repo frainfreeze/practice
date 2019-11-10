@@ -5,57 +5,70 @@
     <title>Pointers</title>
 
     <!--Load CSS-->
-    <link rel="stylesheet" type="text/css" href="../src/main.css" media="all">
-    <link rel="stylesheet" type="text/css" href="../src/prettify.css" media="all">
+    <link rel="stylesheet" type="text/css" href="../res/main.css" media="all">
+    <link rel="stylesheet" type="text/css" href="../res/prettify.css" media="all">
 
     <!--Load Javascript-->
-    <script src="../src/main.js"></script>
-    <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+    <script src="../res/jquery.js"></script>
+    <script src="../res/run_prettify.js"></script>
 
     <script type="text/javascript">
-        function toggle_expando(elem) { 
-            var examples = $(elem).siblings(".rule-examples"); 
-            var toggle = $(elem).find(".toggle"); 
-            if (examples.is(":visible")) { 
-                toggle.text("[+]"); 
-                examples.slideUp(); 
+        function toggle_expando(elem) {
+            var examples = $(elem).siblings(".rule-examples");
+            var toggle = $(elem).find(".toggle");
+            if (examples.is(":visible")) {
+                toggle.text("[+]");
+                examples.slideUp();
             } else {
-                 toggle.text("[\u2013]"); 
-                 examples.slideDown(); 
-            } 
+                toggle.text("[\u2013]");
+                examples.slideDown();
+            }
         }
+
+        window.onbeforeprint = function () {
+            for (var e = 0; e < document.querySelectorAll(".expander").length; e++) { 
+                toggle_expando(document.querySelectorAll(".expander")[e]) 
+            };
+        };
     </script>
 </head>
 
 <body onload="PR.prettyPrint()">
-<div class="rulespage">
-    <!--Title-->
-    <h1>pointers and references practice</h1>
+    <div class="rulespage">
+        <!--Title-->
+        <h1>pointers and references practice</h1>
 
-    <!--text under title-->
-    <p class="info">This page contains set of challenges that you can go through to test your understanding on the topic. It aditionally contains links to resources and or explanations on the topic.</p>
-    <p class="info"><b>This page was last updated on 25-2-2018</b></p>
-    <p class="info">You can find its source on <a href="https://github.com/frainfreeze/practice/tree/master/">github.</a></p>
+        <!--text under title-->
+        <p class="info">This page contains set of challenges that you can go through to test your understanding on the
+            topic. It aditionally contains links to resources and or explanations on the topic.</p>
+        <p class="info"><b>This page was last updated on 10.11.2019</b></p>
+        <p class="info">You can find its source on <a
+                href="https://github.com/frainfreeze/practice/tree/master/">github.</a></p>
 
-    <!-- section -->
-    <ol class="rule-list">
-        <li id="tutorial" class="first-rule">
-            <div class="examples">
-                <p><b>Pointer</b> is a variable that can contain a memory address.</p>
-                <br>
-                <p>Recommended reading: The C Programming Language", 2nd edition, Kernighan and Ritchie; Chapter 5</p>
-                <br>
-                <p>
-                    Useful links: <a href="http://en.cppreference.com/book/pointers" target="_blank" >cppreference.com</a>, 
-                    <a href="http://www.cplusplus.com/doc/tutorial/pointers/" target="_blank" >cplusplus.com</a>, 
-                    <a href="http://cslibrary.stanford.edu/106/" target="_blank" >Stanford 106</a>, 
-                    <a href="https://gist.github.com/ericandrewlewis/720c374c29bbafadedc9" target="_blank" >random pointer tutorial</a>, 
-                    <a href="http://pweb.netcom.com/~tjensen/ptr/pointers.htm" target="_blank" >and more pointers</a>.
-                </p>
-                <br>
-                <p class="expander" onclick="return toggle_expando(this);"><em class="toggle">[+]</em>&nbsp;Show example code</p>
-                <div class="rule-examples" style="display: none;">
-<pre  class="prettyprint">
+        <!-- section -->
+        <ol class="rule-list">
+            <li id="tutorial" class="first-rule">
+                <div class="examples">
+                    <p><b>Pointer</b> is a variable that can contain a memory address.</p>
+                    <br>
+                    <p>Recommended reading: The C Programming Language", 2nd edition, Kernighan and Ritchie; Chapter 5
+                    </p>
+                    <br>
+                    <p>
+                        Useful links: <a href="http://en.cppreference.com/book/pointers"
+                            target="_blank">cppreference.com</a>,
+                        <a href="http://www.cplusplus.com/doc/tutorial/pointers/" target="_blank">cplusplus.com</a>,
+                        <a href="http://cslibrary.stanford.edu/106/" target="_blank">Stanford 106</a>,
+                        <a href="https://gist.github.com/ericandrewlewis/720c374c29bbafadedc9" target="_blank">random
+                            pointer tutorial</a>,
+                        <a href="http://pweb.netcom.com/~tjensen/ptr/pointers.htm" target="_blank">and more
+                            pointers</a>.
+                    </p>
+                    <br>
+                    <p class="expander" onclick="return toggle_expando(this);"><em class="toggle">[+]</em>&nbsp;Show
+                        example code</p>
+                    <div class="rule-examples" style="display: none;">
+                        <pre class="prettyprint">
 <code class="language-cpp">
     string* ptrToElement(vector<string>* const pVec, int i){
         //returns address of the string in position
@@ -128,20 +141,24 @@
     cout << tempArray[0] << endl;
 </code></pre>
 
-                </div></div>
+                    </div>
+                </div>
 
                 <br><br>
 
                 <div class="examples">
-                <p><b>A reference</b> is a simple reference datatype that is less powerful but safer than the pointer type inherited from C.</p>
-                <br>
-                <p>
-                    Useful links: <a href="http://en.cppreference.com/book/intro/reference" target="_blank" >cppreference.com</a>,
-                    <a href="https://isocpp.org/wiki/faq/references" target="_blank" >isocpp.org</a>.
-                </p>
-                <p class="expander" onclick="return toggle_expando(this);"><em class="toggle">[+]</em>&nbsp;Show example code</p>
-                <div class="rule-examples" style="display: none;">
-<pre  class="prettyprint">
+                    <p><b>A reference</b> is a simple reference datatype that is less powerful but safer than the
+                        pointer type inherited from C.</p>
+                    <br>
+                    <p>
+                        Useful links: <a href="http://en.cppreference.com/book/intro/reference"
+                            target="_blank">cppreference.com</a>,
+                        <a href="https://isocpp.org/wiki/faq/references" target="_blank">isocpp.org</a>.
+                    </p>
+                    <p class="expander" onclick="return toggle_expando(this);"><em class="toggle">[+]</em>&nbsp;Show
+                        example code</p>
+                    <div class="rule-examples" style="display: none;">
+                        <pre class="prettyprint">
 <code class="language-cpp">
     string& ref2element(vector<string>& barVec, int i){
             return barVec[i]; // returns reference
@@ -176,19 +193,24 @@
     cout << barVec[1] << endl; // spaz
 </code></pre>
 
-            </div></div></li>
+                    </div>
+                </div>
+            </li>
 
             <br><br>
 
 
             <li id="tutorial" class="first-rule">
-            <!--challenge-->
-            <div class="examples">
-                <p>1. Create pointer 'pNum' that points to int 'num'. Set value of num to 10 by deferencing pNum pointer. Initialize new varibale 'num2' by directly acessing  'num' throught pNum pointer. Output num2.</p>
+                <!--challenge-->
+                <div class="examples">
+                    <p>1. Create pointer 'pNum' that points to int 'num'. Set value of num to 10 by deferencing pNum
+                        pointer. Initialize new varibale 'num2' by directly acessing 'num' throught pNum pointer. Output
+                        num2.</p>
 
-                <p class="expander" onclick="return toggle_expando(this);"><em class="toggle">[+]</em>&nbsp;Show solution</p>
-                <div class="rule-examples" style="font-size:12; display: none;">
-                        <pre  class="prettyprint">
+                    <p class="expander" onclick="return toggle_expando(this);"><em class="toggle">[+]</em>&nbsp;Show
+                        solution</p>
+                    <div class="rule-examples" style="font-size:12; display: none;">
+                        <pre class="prettyprint">
                             <code class="language-cpp">
 int num;
 int* pNum = &amp;num;
@@ -199,20 +221,22 @@ std::cout << num2 << std::endl;
 output: 10
                         </code></pre>
 
+                    </div>
                 </div>
-            </div>
-            <!-- end challenge -->
+                <!-- end challenge -->
 
-            <br>  <br>
+                <br> <br>
 
-            <!--challenge-->
-            <div class="examples">
-                    <p>2. How would you output memory address of num from previous example? How would you output memory address of num by using pointer? How would you ouput memory address of the pointer itself?
-                        </p>
-    
-                    <p class="expander" onclick="return toggle_expando(this);"><em class="toggle">[+]</em>&nbsp;Show solution</p>
+                <!--challenge-->
+                <div class="examples">
+                    <p>2. How would you output memory address of num from previous example? How would you output memory
+                        address of num by using pointer? How would you ouput memory address of the pointer itself?
+                    </p>
+
+                    <p class="expander" onclick="return toggle_expando(this);"><em class="toggle">[+]</em>&nbsp;Show
+                        solution</p>
                     <div class="rule-examples" style="font-size:12; display: none;">
-                            <pre  class="prettyprint">
+                        <pre class="prettyprint">
                                 <code class="language-cpp">
 std::cout << &num << std::endl;
 std::cout << pNum << std::endl;
@@ -223,17 +247,17 @@ output:
 0x28ff28 - num over pointer
 0x28ff24 - pointers address
                             </code></pre>
-    
+
                     </div>
                 </div>
                 <!-- end challenge -->
-    
-                <br>  <br>
 
-            <!--challenge-->           
-            <div class="examples">
-                <p>3. What does following code output?</p>
-<pre  class="prettyprint">
+                <br> <br>
+
+                <!--challenge-->
+                <div class="examples">
+                    <p>3. What does following code output?</p>
+                    <pre class="prettyprint">
 <code class="language-cpp">
 void coutA(int*a){
     cout << &a << " | " << a << " | " << *a << " | in pointer func" << endl;
@@ -263,9 +287,10 @@ int main() {
 </pre>
 
 
-                <p class="expander" onclick="return toggle_expando(this);"><em class="toggle">[+]</em>&nbsp;Show solution</p>
-                <div class="rule-examples" style="font-size:11; display: none;">
-<pre>
+                    <p class="expander" onclick="return toggle_expando(this);"><em class="toggle">[+]</em>&nbsp;Show
+                        solution</p>
+                    <div class="rule-examples" style="font-size:11; display: none;">
+                        <pre>
                         0x28ff28 | 42            | in reference func
                         0x28ff10 | 0x28ff28 | 42 | in pointer func
                         0x28ff10 | 0x28ff28 | 42 | in pointer func
@@ -280,21 +305,23 @@ int main() {
                         0x28ff20
 </pre>
 
+                    </div>
                 </div>
-            </div>
-            <!-- end challenges -->
+                <!-- end challenges -->
 
-            <br>  <br>
+                <br> <br>
 
-            <!--challenge-->
-            <div class="examples">
-                <p>
-                        3. Initialize int and float variables 'foo' and 'bar' both to 0. Declare a new void pointer and use it to change values of foo and bar to 3 and 3.4 respectively. Output values of foo and bar.
-                </p>
-    
-                <p class="expander" onclick="return toggle_expando(this);"><em class="toggle">[+]</em>&nbsp;Show solution</p>
-                <div class="rule-examples" style="font-size:12; display: none;">
-                    <pre  class="prettyprint">
+                <!--challenge-->
+                <div class="examples">
+                    <p>
+                        3. Initialize int and float variables 'foo' and 'bar' both to 0. Declare a new void pointer and
+                        use it to change values of foo and bar to 3 and 3.4 respectively. Output values of foo and bar.
+                    </p>
+
+                    <p class="expander" onclick="return toggle_expando(this);"><em class="toggle">[+]</em>&nbsp;Show
+                        solution</p>
+                    <div class="rule-examples" style="font-size:12; display: none;">
+                        <pre class="prettyprint">
                     <code class="language-cpp">
 int foo = 0;
 float bar = 0;
@@ -310,21 +337,23 @@ std::cout &lt;&lt; foo &lt;&lt; ", " &lt;&lt; bar &lt;&lt; std::endl;
 --------------------------------------------
 output: 3, 3.4
                     </code></pre>
+                    </div>
                 </div>
-            </div>
-            <!-- end challenge -->
+                <!-- end challenge -->
 
-            <br>  <br>
+                <br> <br>
 
-            <!--challenge-->
-            <div class="examples">
-                <p>
-                4. Define an array of first 5 natural numbers. Output whole array by deferencing a pointer and change 3 to 4 before outputing it.
-                </p>
-    
-                <p class="expander" onclick="return toggle_expando(this);"><em class="toggle">[+]</em>&nbsp;Show solution</p>
-                <div class="rule-examples" style="font-size:12; display: none;">
-                    <pre  class="prettyprint">
+                <!--challenge-->
+                <div class="examples">
+                    <p>
+                        4. Define an array of first 5 natural numbers. Output whole array by deferencing a pointer and
+                        change 3 to 4 before outputing it.
+                    </p>
+
+                    <p class="expander" onclick="return toggle_expando(this);"><em class="toggle">[+]</em>&nbsp;Show
+                        solution</p>
+                    <div class="rule-examples" style="font-size:12; display: none;">
+                        <pre class="prettyprint">
                     <code class="language-cpp">
 int arr[] = {1,2,3,4,5};
 for(int i = 0; i&lt;sizeof(arr)/sizeof(*arr); ++i){
@@ -334,14 +363,14 @@ for(int i = 0; i&lt;sizeof(arr)/sizeof(*arr); ++i){
 ------------------------------------------------
 output: 1 2 4 4 5
                     </code></pre>
+                    </div>
                 </div>
-            </div>
-            <!-- end challenge -->
-            <br>  <br>
-            <!--challenge-->           
-            <div class="examples">
-                <p>5. What does following code output?</p>
-<pre  class="prettyprint">
+                <!-- end challenge -->
+                <br> <br>
+                <!--challenge-->
+                <div class="examples">
+                    <p>5. What does following code output?</p>
+                    <pre class="prettyprint">
 <code class="language-cpp">
 int a = 1;
 int b = 2;
@@ -358,9 +387,10 @@ for(int i = 0; i&lt;sizeof(arr)/sizeof(*arr); ++i){
 </pre>
 
 
-                <p class="expander" onclick="return toggle_expando(this);"><em class="toggle">[+]</em>&nbsp;Show solution</p>
-                <div class="rule-examples" style="font-size:12; display: none;">
-<pre>
+                    <p class="expander" onclick="return toggle_expando(this);"><em class="toggle">[+]</em>&nbsp;Show
+                        solution</p>
+                    <div class="rule-examples" style="font-size:12; display: none;">
+                        <pre>
                     0x28ff14 | 1
                     0x28ff14 | 1
                     0x28ff18 | 2
@@ -369,28 +399,31 @@ for(int i = 0; i&lt;sizeof(arr)/sizeof(*arr); ++i){
                     0x28ff1c | 7
 </pre>
 
+                    </div>
                 </div>
-            </div>
-            <!-- end challenges -->
+                <!-- end challenges -->
 
-            <br>  <br>
+                <br> <br>
 
-            <!--challenge-->
-            <div class="examples">
-                <p>
-                6. Define new pancake using struct bellow and assign it values 10 and 7.68 using pointers. Output pancake info using alternative notation. 
-            </p>
-            <br><pre style="font-size:12">
+                <!--challenge-->
+                <div class="examples">
+                    <p>
+                        6. Define new pancake using struct bellow and assign it values 10 and 7.68 using pointers.
+                        Output pancake info using alternative notation.
+                    </p>
+                    <br>
+                    <pre style="font-size:12">
 struct Pancake {
     int i;
     float f;
 };
 </pre>
-                
-    
-                <p class="expander" onclick="return toggle_expando(this);"><em class="toggle">[+]</em>&nbsp;Show solution</p>
-                <div class="rule-examples" style="font-size:12; display: none;">
-                    <pre  class="prettyprint">
+
+
+                    <p class="expander" onclick="return toggle_expando(this);"><em class="toggle">[+]</em>&nbsp;Show
+                        solution</p>
+                    <div class="rule-examples" style="font-size:12; display: none;">
+                        <pre class="prettyprint">
                     <code class="language-cpp">
 Pancake *ptr, pancake;
 ptr = &pancake;
@@ -402,15 +435,14 @@ std::cout << ptr->i << " " << ptr->f;
 ------------------------------------
 output: 10, 7.68
                     </code></pre>
+                    </div>
                 </div>
-            </div>
-            <!-- end challenge -->
-        </li>
-    </ol>
-    <!-- end section-->
-    <p>© 2018 Tomislav (fraifnreeze) Kucar.</p><br><br>
-</div>
+                <!-- end challenge -->
+            </li>
+        </ol>
+        <!-- end section-->
+        <p>© 2019 Tomislav (frainfreeze) Kucar.</p><br><br>
+    </div>
 </body>
 
-<!-- separator line <li id="goodboy">-->
 </html>
