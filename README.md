@@ -24,4 +24,4 @@
 
 
 --------
-- [template](https://frainfreeze.github.io/practice/template.html)
+- [template](https://frainfreeze.github.io/practice/template/index.html)
